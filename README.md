@@ -1,2 +1,2 @@
 # NNPTUD-S3
-Nguyễn Nhật Quang 2280618967  
+Trần Nguyễn Hoàng Quốc Khánh 2280601477
