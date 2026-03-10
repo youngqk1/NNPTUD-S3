@@ -1,0 +1,281 @@
+/* ============================================================
+   Product Dashboard Styles
+   ============================================================ */
+
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --bg-light: #f8f9fa;
+    --text-muted: #6c757d;
+    --border-color: #dee2e6;
+    --shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    --shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    --glass: rgba(255, 255, 255, 0.85);
+}
+
+body {
+    background-color: #f0f2f5;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #333;
+}
+
+/* ── Container & Header ─────────────────────────────────────── */
+.dashboard-container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.card-main {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.header-section {
+    padding: 2rem;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* ── Controls ────────────────────────────────────────────────── */
+.controls-section {
+    padding: 1.5rem 2rem;
+    background: #fdfdfd;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.search-input {
+    padding-left: 2.75rem;
+    padding-right: 2.5rem;
+    height: 48px;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+}
+
+.clear-btn {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+}
+
+/* ── Table Styles ────────────────────────────────────────────── */
+.table-wrapper {
+    padding: 0;
+    position: relative;
+    min-height: 400px;
+}
+
+.table thead th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #444;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.table tbody td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.row-num {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.product-img {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.img-fallback {
+    width: 54px;
+    height: 54px;
+    background: #f0f0f0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 1.5rem;
+}
+
+.product-title {
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.15rem;
+}
+
+.desc-hover-hint {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: block;
+}
+
+.price-badge {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.category-badge {
+    background: #e9ecef;
+    color: #495057;
+    padding: 0.35rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* ── Sort & Hover ────────────────────────────────────────────── */
+.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.sortable:hover {
+    background: #f1f3f5 !important;
+}
+
+.sort-icon {
+    font-size: 0.8rem;
+    opacity: 0.4;
+}
+
+.sortable:hover .sort-icon {
+    opacity: 1;
+}
+
+tr:hover {
+    background-color: #fcfdfe;
+}
+
+tr:hover .desc-hover-hint {
+    color: var(--primary-color);
+}
+
+/* ── Highlight ───────────────────────────────────────────────── */
+.search-highlight {
+    background: #fff3cd;
+    color: #856404;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────── */
+.custom-tooltip {
+    position: fixed;
+    z-index: 9999;
+    background: #2d3436;
+    color: white;
+    padding: 0.85rem 1.25rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    max-width: 320px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: var(--shadow);
+    line-height: 1.5;
+}
+
+.custom-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Pagination ──────────────────────────────────────────────── */
+.footer-section {
+    padding: 1.5rem 2rem;
+    background: white;
+    border-top: 1px solid var(--border-color);
+}
+
+.pagination {
+    margin-bottom: 0;
+    gap: 0.25rem;
+}
+
+.page-link {
+    border: none;
+    border-radius: 0.5rem !important;
+    color: #444;
+    font-weight: 600;
+    padding: 0.5rem 0.85rem;
+    transition: all 0.2s;
+}
+
+.page-link:hover {
+    background-color: #f1f3f5;
+    color: var(--primary-color);
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(13, 110, 253, 0.25);
+}
+
+/* ── States ──────────────────────────────────────────────────── */
+.state-container {
+    padding: 5rem 0;
+}
+
+.loading-spinner {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* ── Toast ───────────────────────────────────────────────────── */
+.toast-container {
+    z-index: 10000;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .controls-section .d-flex {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}

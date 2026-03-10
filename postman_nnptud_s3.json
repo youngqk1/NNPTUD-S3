@@ -1,0 +1,364 @@
+{
+    "info": {
+        "_postman_id": "c3eb145a-7fa2-4e4b-9e8c-5a5fdd8b2222",
+        "name": "NNPTUD-S3 API (MongoDB)",
+        "description": "Collection để test toàn bộ API cho dự án NNPTUD-S3\nBase URL: http://localhost:3000/api/v1",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Products",
+            "item": [
+                {
+                    "name": "GET - Lấy tất cả sản phẩm",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "products"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET - Chi tiết sản phẩm",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/ID_SAN_PHAM",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "products", "ID_SAN_PHAM"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST - Thêm sản phẩm mới",
+                    "request": {
+                        "method": "POST",
+                        "header": [{ "key": "Content-Type", "value": "application/json" }],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Sản phẩm Postman Test\",\n  \"price\": 500000,\n  \"description\": \"Tạo sản phẩm này để chụp ảnh minh chứng nộp bài\",\n  \"category\": \"PASTE_CATEGORY_ID_HERE\",\n  \"images\": [\"https://placehold.co/600x400\"]\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "products"]
+                        },
+                        "description": "Lấy Category ID từ kết quả GET All Categories hoặc từ MongoDB Compass."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT - Cập nhật sản phẩm",
+                    "request": {
+                        "method": "PUT",
+                        "header": [{ "key": "Content-Type", "value": "application/json" }],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"Sản phẩm đã sửa\",\n  \"price\": 600000\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/ID_SAN_PHAM",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "products", "ID_SAN_PHAM"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE - Xóa mềm sản phẩm",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/products/ID_SAN_PHAM",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "products", "ID_SAN_PHAM"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Roles",
+            "item": [
+                {
+                    "name": "GET - Lấy tất cả role",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/roles",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "roles"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET - Chi tiết role theo ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/roles/ID_ROLE",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "roles", "ID_ROLE"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET - Lấy tất cả user theo role",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/roles/ID_ROLE/users",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "roles", "ID_ROLE", "users"]
+                        },
+                        "description": "Trả về danh sách tất cả user có role khớp với ID_ROLE (chưa bị xoá mềm)"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST - Tạo role mới",
+                    "request": {
+                        "method": "POST",
+                        "header": [{ "key": "Content-Type", "value": "application/json" }],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"admin\",\n  \"description\": \"Quản trị viên hệ thống\"\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/roles",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "roles"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT - Cập nhật role",
+                    "request": {
+                        "method": "PUT",
+                        "header": [{ "key": "Content-Type", "value": "application/json" }],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"moderator\",\n  \"description\": \"Kiểm duyệt viên\"\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/roles/ID_ROLE",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "roles", "ID_ROLE"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE - Xoá mềm role",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/roles/ID_ROLE",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "roles", "ID_ROLE"]
+                        },
+                        "description": "Xoá mềm: đặt isDeleted = true, không xoá khỏi database"
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "GET - Lấy tất cả user",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/users",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "users"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET - Tìm user theo username (contains)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/users?username=nguyen",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "users"],
+                            "query": [
+                                {
+                                    "key": "username",
+                                    "value": "nguyen",
+                                    "description": "Tìm kiếm gần đúng (contains), không phân biệt hoa thường"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GET - Chi tiết user theo ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/users/ID_USER",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "users", "ID_USER"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST - Tạo user mới",
+                    "request": {
+                        "method": "POST",
+                        "header": [{ "key": "Content-Type", "value": "application/json" }],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"username\": \"nguyenvana\",\n  \"password\": \"123456\",\n  \"email\": \"nguyenvana@gmail.com\",\n  \"fullName\": \"Nguyễn Văn A\",\n  \"role\": \"PASTE_ROLE_ID_HERE\"\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/users",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "users"]
+                        },
+                        "description": "Các field có default: fullName='', avatarUrl='https://i.sstatic.net/l60Hf.png', status=false, loginCount=0"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "PUT - Cập nhật user",
+                    "request": {
+                        "method": "PUT",
+                        "header": [{ "key": "Content-Type", "value": "application/json" }],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"fullName\": \"Nguyễn Văn A (đã sửa)\",\n  \"avatarUrl\": \"https://i.sstatic.net/l60Hf.png\"\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/users/ID_USER",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "users", "ID_USER"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "DELETE - Xoá mềm user",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/users/ID_USER",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "users", "ID_USER"]
+                        },
+                        "description": "Xoá mềm: đặt isDeleted = true, không xoá khỏi database"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST - Enable tài khoản (status -> true)",
+                    "request": {
+                        "method": "POST",
+                        "header": [{ "key": "Content-Type", "value": "application/json" }],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"nguyenvana@gmail.com\",\n  \"username\": \"nguyenvana\"\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/users/enable",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "users", "enable"]
+                        },
+                        "description": "Truyền email và username. Nếu khớp -> chuyển status = true. Trả 404 nếu thông tin không đúng."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST - Disable tài khoản (status -> false)",
+                    "request": {
+                        "method": "POST",
+                        "header": [{ "key": "Content-Type", "value": "application/json" }],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"nguyenvana@gmail.com\",\n  \"username\": \"nguyenvana\"\n}",
+                            "options": { "raw": { "language": "json" } }
+                        },
+                        "url": {
+                            "raw": "http://localhost:3000/api/v1/users/disable",
+                            "protocol": "http",
+                            "host": ["localhost"],
+                            "port": "3000",
+                            "path": ["api", "v1", "users", "disable"]
+                        },
+                        "description": "Truyền email và username. Nếu khớp -> chuyển status = false. Trả 404 nếu thông tin không đúng."
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}
