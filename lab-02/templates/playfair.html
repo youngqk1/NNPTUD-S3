@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Playfair Cipher{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Playfair Cipher</h1>
+    <p class="subtitle">Phan mo rong: Web demo tao ma tran, ma hoa va giai ma Playfair.</p>
+</section>
+{% with key_placeholder="Example: MONARCHY", matrix_enabled=true %}
+{% include "_cipher_form.html" %}
+{% endwith %}
+{% endblock %}

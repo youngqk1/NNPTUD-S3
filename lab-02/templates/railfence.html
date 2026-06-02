@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Rail Fence Cipher{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Rail Fence Cipher</h1>
+    <p class="subtitle">Phan mo rong: Web demo ma hoa va giai ma Rail Fence.</p>
+</section>
+{% with key_placeholder="Number of rails, example: 3", matrix_enabled=false %}
+{% include "_cipher_form.html" %}
+{% endwith %}
+{% endblock %}

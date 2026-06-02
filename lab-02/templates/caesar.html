@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Caesar Cipher{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Caesar Cipher</h1>
+    <p class="subtitle">Cau 01: Ung dung Flask ma hoa va giai ma Caesar.</p>
+</section>
+{% with key_placeholder="Example: 3", matrix_enabled=false %}
+{% include "_cipher_form.html" %}
+{% endwith %}
+{% endblock %}

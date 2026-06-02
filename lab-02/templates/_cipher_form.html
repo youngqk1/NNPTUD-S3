@@ -1,0 +1,59 @@
+<form method="post" class="tool">
+    <div class="grid">
+        <div>
+            <label for="plain_text">Plain text</label>
+            <textarea id="plain_text" name="plain_text">{{ plain_text }}</textarea>
+        </div>
+        <div>
+            <label for="cipher_text">Cipher text</label>
+            <textarea id="cipher_text" name="cipher_text">{{ cipher_text }}</textarea>
+        </div>
+    </div>
+
+    <div class="grid" style="margin-top: 16px;">
+        <div>
+            <label for="key">Key</label>
+            <input id="key" name="key" value="{{ key }}" placeholder="{{ key_placeholder }}">
+        </div>
+        <div>
+            <label for="action">Action</label>
+            <select id="action" name="action">
+                <option value="encrypt" {{ 'selected' if action == 'encrypt' else '' }}>Encrypt</option>
+                <option value="decrypt" {{ 'selected' if action == 'decrypt' else '' }}>Decrypt</option>
+                {% if matrix_enabled %}
+                <option value="matrix" {{ 'selected' if action == 'matrix' else '' }}>Create matrix</option>
+                {% endif %}
+            </select>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button type="submit">Run</button>
+    </div>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    {% if result %}
+    <div class="result">
+        <strong>Result:</strong>
+        <div>{{ result }}</div>
+    </div>
+    {% endif %}
+
+    {% if matrix %}
+    <div class="matrix">
+        <strong>Playfair matrix:</strong>
+        <table>
+            {% for row in matrix %}
+            <tr>
+                {% for item in row %}
+                <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+</form>

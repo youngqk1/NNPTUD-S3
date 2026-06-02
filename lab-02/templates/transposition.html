@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Transposition Cipher{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Transposition Cipher</h1>
+    <p class="subtitle">Phan mo rong: Web demo ma hoa va giai ma Transposition.</p>
+</section>
+{% with key_placeholder="Number of columns, example: 8", matrix_enabled=false %}
+{% include "_cipher_form.html" %}
+{% endwith %}
+{% endblock %}

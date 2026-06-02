@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Vigenere Cipher{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Vigenere Cipher</h1>
+    <p class="subtitle">Phan mo rong: Web demo ma hoa va giai ma Vigenere.</p>
+</section>
+{% with key_placeholder="Example: KEY", matrix_enabled=false %}
+{% include "_cipher_form.html" %}
+{% endwith %}
+{% endblock %}

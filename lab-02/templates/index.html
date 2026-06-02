@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Lab 02 Cipher{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Bai 2: Ma hoa voi Python</h1>
+    <p class="subtitle">Ung dung Flask demo ma hoa va giai ma cho Caesar, Vigenere, Rail Fence, Playfair va Transposition.</p>
+</section>
+
+<section class="cards">
+    <a class="card" href="/caesar">
+        <strong>Caesar</strong>
+        <span>Thuc hanh 01: ma hoa va giai ma bang khoa dich chuyen.</span>
+    </a>
+    <a class="card" href="/vigenere">
+        <strong>Vigenere</strong>
+        <span>Mo rong: ma hoa theo chuoi khoa lap lai.</span>
+    </a>
+    <a class="card" href="/railfence">
+        <strong>Rail Fence</strong>
+        <span>Mo rong: sap xep ky tu theo duong zigzag tren cac hang.</span>
+    </a>
+    <a class="card" href="/playfair">
+        <strong>Playfair</strong>
+        <span>Mo rong: ma hoa tung cap ky tu bang ma tran 5x5.</span>
+    </a>
+    <a class="card" href="/transposition">
+        <strong>Transposition</strong>
+        <span>Mo rong: doi vi tri ky tu theo khoa cot.</span>
+    </a>
+</section>
+{% endblock %}
